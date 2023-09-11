@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PowerNap</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">PowerNap</a>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to PowerNap</h1>
+            <p class="lead">Sleep is the best healing</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>
+                    PowerNap is your oasis of tranquility in the bustling city. Located in the heart of Binar Academy Tower Jakarta, we provide a serene space for people to relax and recharge after lunch. Our mission is to offer a comfortable and rejuvenating experience to help you stay productive throughout the day.
+                </p>
+                <p>
+                    Operating Hours: 11:30 AM - 1:00 PM
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h2>API Documentation</h2>
+                <p>
+                    Below is the detailed documentation for our API:
+                </p>
+                <h4>Get List of Rooms</h4>
+                <p><strong>URL:</strong> `/rooms`</p>
+                <p><strong>Method:</strong> GET</p>
+                <p><strong>Description:</strong> Retrieve a list of available rooms.</p>
+                <p><strong>Response:</strong> Status 200 OK</p>
+                <p><strong>Example:</strong></p>
+                <pre>
+[
+    {
+        "room_id": 1,
+        "room_type": "Senderan",
+        "room_price": 8000
+    },
+    {
+        "room_id": 2,
+        "room_type": "Rebahan",
+        "room_price": 17000
+    },
+    {
+        "room_id": 3,
+        "room_type": "Pules Poll",
+        "room_price": 45000
+    }
+]
+                </pre>
+
+                <h4>Create a Reservation</h4>
+                <p><strong>URL:</strong> `/reservation`</p>
+                <p><strong>Method:</strong> POST</p>
+                <p><strong>Description:</strong> Create a new room reservation.</p>
+                <p><strong>Request Body:</strong></p>
+                <pre>
+{
+    "first_name": "Andreas",
+    "last_name": "Tan",
+    "phone_number": "123456789",
+    "room_type": "Senderan",
+    "number_of_rooms": 2,
+    "booking_for": "2023-09-15"
+}
+                </pre>
+                <p><strong>Response:</strong> Status 201 Created</p>
+                <p><strong>Example Response:</strong></p>
+                <pre>
+{
+    "status": 201,
+    "message": "Reservation successfully made",
+    "reservation_number": 4,
+    "first_name": "Andreas",
+    "last_name": "Tan",
+    "room_type": "Senderan",
+    "booking_for": "2023-09-15",
+    "order_price": 16000
+}
+                </pre>
+
+                <h4>Update a Reservation</h4>
+                <p><strong>URL:</strong> `/reservation/:reservation_number`</p>
+                <p><strong>Method:</strong> PUT</p>
+                <p><strong>Description:</strong> Update an existing room reservation by reservation number. You can also update and delete the reservation by providing the reservation number.</p>
+                <p><strong>Request Body (Example):</strong></p>
+                <pre>
+{
+    "room_type": "Rebahan",
+    "number_of_rooms": 3,
+    "date": "2023-09-20"
+}
+                </pre>
+                <p><strong>Response:</strong> Status 200 OK</p>
+                <p><strong>Example Response:</strong></p>
+                <pre>
+{
+    "status": 200,
+    "message": "Reservation updated successfully"
+}
+                </pre>
+
+                <h4>Delete a Reservation</h4>
+                <p><strong>URL:</strong> `/reservation/:reservation_number`</p>
+                <p><strong>Method:</strong> DELETE</p>
+                <p><strong>Description:</strong> Delete a room reservation by reservation number. You can also update and delete the reservation by providing the reservation number.</p>
+                <p><strong>Response:</strong> Status 200 OK</p>
+                <p><strong>Example Response:</strong></p>
+                <pre>
+{
+    "status": 200,
+    "message": "Reservation deleted successfully"
+}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
